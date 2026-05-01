@@ -100,16 +100,16 @@ class PushButtons(Task):
         self.register_success_conditions(
             [ConditionSet(self.success_conditions, True, False)])
 
-        rtn0 = 'push the %s button' % self.color_names[0]
-        rtn1 = 'press the %s button' % self.color_names[0]
-        rtn2 = 'push down the button with the %s base' % self.color_names[0]
+        rtn0 = 'push the button0'
+        rtn1 = 'press the button1'
+        rtn2 = 'push down the button with the base2'
         for i in range(self.buttons_to_push):
             if i == 0:
                 continue
             else:
-                rtn0 += ', then push the %s button' % self.color_names[i]
-                rtn1 += ', then press the %s button' % self.color_names[i]
-                rtn2 += ', then the %s one' % self.color_names[i]
+                rtn0 += ', then push the button%s' % (i)
+                rtn1 += ', then press the button%s' % (i)
+                rtn2 += ', then the %s one' % (i)
 
         b = SpawnBoundary([self.boundaries])
         for button in self.target_buttons:

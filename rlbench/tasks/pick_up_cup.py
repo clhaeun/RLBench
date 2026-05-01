@@ -39,9 +39,9 @@ class PickUpCup(Task):
         self.boundary.sample(self.cup2, min_distance=0.1)
         self.boundary.sample(self.success_sensor, min_distance=0.1)
 
-        return ['pick up the %s cup' % target_color_name,
-                'grasp the %s cup and lift it' % target_color_name,
-                'lift the %s cup' % target_color_name]
+        return ['pick up the cup%s' % (self.variation_index + 1),
+                'grasp the cup%s and lift it' % (self.variation_index + 1),
+                'lift the cup%s' % (self.variation_index + 1)]
 
     def variation_count(self) -> int:
         return len(colors)

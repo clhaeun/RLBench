@@ -8,7 +8,6 @@ from rlbench.backend.conditions import DetectedCondition, ConditionSet, \
 from rlbench.backend.spawn_boundary import SpawnBoundary
 from rlbench.const import colors
 
-
 class PickAndLift(Task):
 
     def init_task(self) -> None:
@@ -45,10 +44,9 @@ class PickAndLift(Task):
         for block in [self.target_block] + self.distractors:
             self.boundary.sample(block, min_distance=0.1)
 
-        return ['pick up the %s block and lift it up to the target' %
-                block_color_name,
-                'grasp the %s block to the target' % block_color_name,
-                'lift the %s block up to the target' % block_color_name]
+        return ['pick up the pick_and_lift_target and lift it up to the target',
+                'grasp the pick_and_lift_target to the target',
+                'lift the pick_and_lift_target up to the target']
 
     def variation_count(self) -> int:
         return len(colors)

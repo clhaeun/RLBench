@@ -118,6 +118,7 @@ class RLBenchEnv(gym.Env):
         return self._extract_obs(obs), reward, terminated, False, {}
 
     def close(self) -> None:
-        self.rlbench_env.shutdown()
+        # self.rlbench_env.shutdown()
+        pass
         
 

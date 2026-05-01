@@ -203,3 +203,6 @@ class Environment(object):
         self.shutdown()
         self._headless = headless
         return d
+
+    def is_shutdown(self) -> bool:
+        return self._pyrep is None

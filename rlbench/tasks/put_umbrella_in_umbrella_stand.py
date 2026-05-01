@@ -15,6 +15,8 @@ class PutUmbrellaInUmbrellaStand(Task):
             [DetectedCondition(umbrella, success_sensor),
              NothingGrasped(self.robot.gripper)])
 
+        self._stand = Shape('stand')
+
     def init_episode(self, index: int) -> List[str]:
         return ['put umbrella in umbrella stand'
                 'pick up the umbrella and drop it in its stand',

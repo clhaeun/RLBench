@@ -8,8 +8,8 @@ from rlbench.backend.conditions import DetectedCondition, NothingGrasped
 from rlbench.backend.spawn_boundary import SpawnBoundary
 
 GROCERY_NAMES = [
-    'crackers',
     'chocolate jello',
+    'crackers',
     'strawberry jello',
     'soup',
     'tuna',

@@ -164,7 +164,7 @@ class Task(object):
 
         :return: True if the task pose should not be sampled.
         """
-        return False
+        return True
 
     def set_initial_objects_in_scene(self):
         objs = self.get_base().get_objects_in_tree(
@@ -283,6 +283,9 @@ class Task(object):
 
     def get_graspable_objects(self):
         return self._graspable_objects
+    
+    def get_success_conditions(self):
+        return self._success_conditions
 
     def success(self) -> Tuple[bool, bool]:
         """If the task is currently successful.
@@ -298,6 +301,22 @@ class Task(object):
             [cond.condition_met()[0] for cond in self._success_conditions])
         should_terminate = all_met
         return all_met, should_terminate
+    
+    def _goal_condition(self) -> Tuple[float, bool]:
+        """
+        :return: Tuple containing goal_condition_rate (fraction of success conditions met)
+                and a bool indicating whether all success conditions are met.
+        """
+        if len(self._success_conditions) == 0:
+            return 0.0, False
+
+        met = [cond.condition_met()[0] for cond in self._success_conditions]
+        num_met = sum(met)
+        total = len(self._success_conditions)
+        rate = num_met / total
+        all_met = num_met == total
+        return rate, all_met
+
 
     def load(self) -> Object:
         if Object.exists(self.name):

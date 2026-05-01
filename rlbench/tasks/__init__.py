@@ -56,6 +56,7 @@ from rlbench.tasks.put_all_groceries_in_cupboard import \
 from rlbench.tasks.put_books_on_bookshelf import PutBooksOnBookshelf
 from rlbench.tasks.put_bottle_in_fridge import PutBottleInFridge
 from rlbench.tasks.put_groceries_in_cupboard import PutGroceriesInCupboard
+from rlbench.tasks.put_groceries_in_cupboard_edited import PutGroceriesInCupboardEdited
 from rlbench.tasks.put_item_in_drawer import PutItemInDrawer
 from rlbench.tasks.put_knife_in_knife_block import PutKnifeInKnifeBlock
 from rlbench.tasks.put_knife_on_chopping_board import PutKnifeOnChoppingBoard
@@ -110,7 +111,17 @@ from rlbench.tasks.unplug_charger import UnplugCharger
 from rlbench.tasks.water_plants import WaterPlants
 from rlbench.tasks.weighing_scales import WeighingScales
 from rlbench.tasks.wipe_desk import WipeDesk
-
+from rlbench.tasks.multitask_example1 import MultitaskExample1
+from rlbench.tasks.multitask_example2 import MultitaskExample2
+from rlbench.tasks.multitask_kitchen0 import MultitaskKitchen0
+from rlbench.tasks.multitask_kitchen1 import MultitaskKitchen1
+from rlbench.tasks.multitask_kitchen2 import MultitaskKitchen2
+from rlbench.tasks.multitask_cleanup import MultitaskCleanup
+from rlbench.tasks.multitask_kitchen import MultitaskKitchen
+from rlbench.tasks.multitask_cook import MultitaskCook
+from rlbench.tasks.tidy_up_desk_ver3 import TidyUpDeskVer3
+from rlbench.tasks.lamp_on_and_pick_and_lift import LampOnAndPickAndLift
+from rlbench.tasks.meat_on_grill_edited import MeatOnGrillEdited
 FS10_V1 = {
     'train': [
         ReachTarget,
@@ -228,7 +239,7 @@ FS95_V1 = {
         SolvePuzzle,
         PickUpCup,
         PhoneOnBase,
-        PourFromCupToCup
+        PourFromCupToCup,
     ],
     'test': [
         PutKnifeOnChoppingBoard,

@@ -42,7 +42,7 @@ class SetupChess(Task):
             piece.set_position(position, self.board)
             piece.set_orientation(rotation, self.board)
 
-        self.nsetup = 1 + index % self.MAX_DISPLACEMENTS
+        self.nsetup = 1  #1 + index % self.MAX_DISPLACEMENTS
         self.placed = -1
         self.places = random.sample([(dx, dy) for dx in range(8) for dy in range(1, 3)], self.nsetup)
 
@@ -51,6 +51,7 @@ class SetupChess(Task):
 
         self.indices = np.random.choice(np.arange(len(self.pieces)), self.nsetup, replace = False)
         self.targets = [self.pieces[idx] for idx in self.indices]
+        print("self.targets:", self.targets[0].get_name())  # Debugging output
 
         delta = 4.7888e-2
 
@@ -73,6 +74,8 @@ class SetupChess(Task):
             'arrange the chess pieces ready for a game',
             'get chess pieces ready'
         ])
+        
+        print("Commands for setup chess:\n", cmds)  # Debugging output
 
         return cmds
 

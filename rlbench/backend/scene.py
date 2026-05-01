@@ -111,7 +111,7 @@ class Scene(object):
         self._has_init_task = True
         self._variation_index = 0
 
-    def init_episode(self, index: int, randomly_place: bool=True,
+    def init_episode(self, index: int, randomly_place: bool=False,
                      max_attempts: int = 5, place_demo: bool = False) -> List[str]:
         """Calls the task init_episode and puts randomly in the workspace.
         """
@@ -120,7 +120,7 @@ class Scene(object):
 
         if not self._has_init_task:
             self.init_task()
-
+        
         # Try a few times to init and place in the workspace
         self._attempts = 0
         descriptions = None
@@ -133,7 +133,7 @@ class Scene(object):
                     if self.robot.arm.check_arm_collision():
                         raise BoundaryError()
                 if not place_demo:
-                    self.task.validate()
+                    # self.task.validate()
                     break
                 else:
                     # Placing demo, run the number of attempts for correct demo reset
@@ -338,10 +338,10 @@ class Scene(object):
                 'No waypoints were found.', self.task)
 
         demo = []
+        gripper_open = 1.0 if self.robot.gripper.get_open_amount()[0] > 0.9 else 0.0
         if record:
             self.pyrep.step()  # Need this here or get_force doesn't work...
             self._joint_position_action = None
-            gripper_open = 1.0 if self.robot.gripper.get_open_amount()[0] > 0.9 else 0.0
             demo.append(self.get_observation())
         while True:
             success = False

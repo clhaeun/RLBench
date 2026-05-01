@@ -18,6 +18,8 @@ class PutKnifeOnChoppingBoard(Task):
             ConditionSet([DetectedCondition(knife, ProximitySensor('success')),
                           NothingGrasped(self.robot.gripper)],
                          order_matters=True)])
+        
+        self._chopping_board = Shape('chopping_board')
 
     def init_episode(self, index: int) -> List[str]:
         self._boundary.clear()

@@ -167,3 +167,9 @@ class TaskEnvironment(object):
         variation_index = demo._observations[0].misc["variation_index"]
         self.set_variation(variation_index)
         return self.reset(demo)
+    
+    def get_goal_condition(self) -> (float, bool):
+        """
+        :return: (goal_condition, success)
+        """
+        return self._task._goal_condition()

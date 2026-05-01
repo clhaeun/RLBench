@@ -17,12 +17,13 @@ class SlideBlockToTarget(Task):
 
     def init_episode(self, index: int) -> List[str]:
         self._variation_index = index
-        return ['slide the block to target',
-                'slide the block onto the target',
-                'push the block until it is sitting on top of the target',
-                'slide the block towards the green target',
-                'cover the target with the block by pushing the block in its'
-                ' direction']
+        return [
+            'slide the block to target — use a -y offset to move behind the block, then push it along the y-axis until it reaches the target',
+            'slide the block onto the target',
+            'push the block until it is sitting on top of the target',
+            'slide the block towards the green target',
+            'cover the target with the block by pushing the block in its direction'
+        ]
 
     def variation_count(self) -> int:
         return 1

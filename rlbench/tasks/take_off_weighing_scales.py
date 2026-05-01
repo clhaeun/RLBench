@@ -56,18 +56,14 @@ class TakeOffWeighingScales(Task):
         index_dic = {0: 'green', 1: 'red', 2: 'yellow'}
         if self.target_pepper_index in range(3):
             return [
-                'remove the %s pepper from the weighing scales and place it '
-                'on the table' % index_dic[self.target_pepper_index],
-                'take the %s pepper off of the scales'
-                % index_dic[self.target_pepper_index],
-                'lift the %s pepper off of the tray and set it down on the '
-                'table' % index_dic[self.target_pepper_index],
-                'grasp the %s pepper and move it to the table top'
-                % index_dic[self.target_pepper_index],
-                'take the %s object off of the scales tray'
-                % index_dic[self.target_pepper_index],
-                'put the %s item on the item'
-                % index_dic[self.target_pepper_index]]
+                'remove the pepper%s from the weighing scales and place it '
+                'on the table' % self.target_pepper_index,
+                'take the pepper%s off of the scales'
+                % self.target_pepper_index,
+                'lift the pepper%s off of the tray and set it down on the '
+                'table' % self.target_pepper_index,
+                'grasp the pepper%s and move it to the table top'
+                % self.target_pepper_index]
         else:
             raise ValueError('Invalid pepper index, should not be here')
 
